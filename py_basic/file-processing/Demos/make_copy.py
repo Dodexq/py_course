@@ -1,0 +1,5 @@
+f1 = open('my_files/logo.png', 'rb')
+f2 = open('my_files/logo2.png', 'wb')
+f2.write(f1.read())
+f1.close()
+f2.close()
