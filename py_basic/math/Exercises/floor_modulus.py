@@ -1,4 +1,5 @@
-# write the divide() function
+def divide(x, y):
+    print(x, "divided by", y, "equals", x // y, "a reminer of", x % y)
 
 def main():
     divide(5, 2)
