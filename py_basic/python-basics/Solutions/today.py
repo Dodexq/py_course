@@ -1,2 +1,0 @@
-today = "Monday"
-print(today)

@@ -1,13 +1,9 @@
-def add_3_and_6():
-    total = 3 + 6
-    print('3 + 6 = ', total)
-
-def add_10_and_12():
-    total = 10 + 12
-    print('10 + 12 = ', total)
+def add_X_and_Y(x, y):
+    total = x + y
+    print(x,'+', y, "=", total)
 
 def main():
-    add_3_and_6()
-    add_10_and_12()
+    add_X_and_Y(5,6)
+    add_X_and_Y(15,24)
 
 main()
