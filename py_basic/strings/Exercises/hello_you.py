@@ -1,12 +1,12 @@
 def say_hello(name):
     print('Hello, ', name, '!', sep='')
 
-def insert_separator(s="="):
-    print(s, s, s, sep="")
+def insert_separator(s="=", repeat = 30):
+    print(s * repeat, sep="")
 
 def recite_poem():
     print("How about a Monty Python poem?")
-    insert_separator("-")
+    insert_separator("-", 15)
     print("Much to his Mum and Dad's dismay")
     print("Horace ate himself one day.")
     print("He didn't stop to say his grace,")
@@ -17,7 +17,7 @@ def say_goodbye(name):
 
 def main():
     your_name = input('What is your name? ')
-    insert_separator("-")
+    insert_separator("-", 10)
     say_hello(your_name)
     insert_separator()
     recite_poem()

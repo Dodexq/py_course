@@ -1,24 +1,39 @@
 _output = ""
 
-def addheaders():
-    # Write your code here
-    pass
+def add_headers():
+    global _output
+    c_header = "{:^10}".format("Company")
+    r_header = "{:^10}".format("Revenue")
+    e_header = "{:^10}".format("Expenses")
+    p_header = "{:^10}".format("Profit")
+    _output += "{}\t{}\t{}\t{}\n".format(c_header, r_header,
+                                         e_header, p_header)
 
-def addrow():
-    # Write your code here
+def add_row():
+    global _output
 
-    # The rest of the function prompts the user to add another row
-    # or quit. On quitting, it prints _output. Leave it as is.
+    c = input("Company: ")
+    r = float(input("Revenue: "))
+    e = float(input("Expenses: "))
+    p = r - e
+
+    c_str = "{:<10}".format(c)
+    r_str = "${:>10,.2f}".format(r)
+    e_str = "${:>10,.2f}".format(e)
+    p_str = "${:>10,.2f}".format(p)
+
+    new_row = "{}\t{}\t{}\t{}\n".format(c_str, r_str, e_str, p_str)
+
+    _output += new_row
 
     again = input("Again? Press ENTER to add a row or Q to quit. ")
     if again.lower() != "q":
-        addrow()
+        add_row()
     else:
         print(_output)
 
 def main():
-    # Call addheaders() and addrow()
-    addheaders()
-    addrow()
+    add_headers()
+    add_row()
 
 main()
