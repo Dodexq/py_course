@@ -6,7 +6,7 @@ grades = {
     "Music": 86
 }
 
-grades["Global Studies"] = 87 # assign new value to existing key
+grades["Global Studies"] = 82 # assign new value to existing key
 grades["Gym"] = 100 # assign value to new key
 
-print(grades["Math"]) # print value of key
+print(grades["Global Studies"]) # print value of key
