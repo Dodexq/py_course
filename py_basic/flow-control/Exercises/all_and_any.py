@@ -1,10 +1,14 @@
 def all_true(iterable):
-    # write function
-    pass
+    for i in iterable:
+        if bool(i) == False:
+            return False
+    return True
 
 def any_true(iterable):
-    # write function
-    pass
+    for i in iterable:
+        if bool(i) == True:
+            return True
+    return False
 
 def main():
     a = all_true([1, 0, 1, 1, 1])
