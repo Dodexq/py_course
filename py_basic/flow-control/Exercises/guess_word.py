@@ -1,14 +1,13 @@
 import random
+import os
 
 def get_word():
-    """Returns random word."""
-    words = ['Charlie', 'Woodstock', 'Snoopy', 'Lucy', 'Linus',
-             'Schroeder', 'Patty', 'Sally', 'Marcie']
+    os.chdir(os.path.dirname(__file__))
+    with open('../data/words.txt') as f:
+        words = f.read().splitlines()
     return random.choice(words).upper()
-
+    
 def check(word, guesses):
-    """Creates and returns string representation of word
-    displaying asterisks for letters not yet guessed."""
     status = ''  
     for w in word:
         if w in guesses:
@@ -34,7 +33,7 @@ def main():
             else:
                 print("There is already a letter", guess)
         else: 
-            print("Enter one letter or the whole word", len(word))
+            print("Enter one letter or the whole word", len(word), "letter")
 
         if len(guess) == len(word):
             if guess == word:
@@ -48,6 +47,9 @@ def main():
             break
         print(check(word, guesses))
 
-    print('{} is it! It took {} tries.'.format(word, len(guesses)))
+    if len(guesses) == 0:
+        print('{} is it! It took 1 tries.'.format(word))
+    else:
+        print('{} is it! It took {} tries.'.format(word, len(guesses)))
 
 main()
