@@ -1,4 +1,7 @@
+import os
+
 def is_state(state):
+    os.chdir(os.path.dirname(__file__))
     with open('../data/states.txt') as f:
         states = f.read().splitlines()
 
@@ -13,15 +16,12 @@ def main():
     print('Name as many state abbreviations do you know?')
     print('Separate them with spaces:')
     states = input('').split()
-    bad_state = False
     for state in states:
         state = state.upper()
         if not is_state(state):
             print(f'{state} is not a state.')
-            bad_state = True
             break
-
-    if not bad_state:
+    else:
         print(f'You named {len(states)} states.')
 
 main()
