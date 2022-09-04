@@ -8,7 +8,7 @@ def open_state(file_name):
             with open('../data/'+file_name) as f:
                 opened = [i.split() for i in (f.read().splitlines())]
         except FileNotFoundError:
-            file_name = input(f"{file_name} отсутствует, введи новое имя: ")
+            file_name = input(f"{file_name} does not exist, please enter a new name: ")
         else:
             break
     return opened
