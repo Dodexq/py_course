@@ -7,56 +7,63 @@ except Exception as e:
 
 # ValueError
 try:
-    pass # code that creates exception
+    int("a")
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # NameError
 try:
-    pass # code that creates exception
+    a = b + c
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # FileNotFoundError
 try:
-    pass # code that creates exception
+    open('file.txt', 'r')
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # ImportError
 try:
-    pass # code that creates exception
+    import best_life
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # TypeError
 try:
-    pass # code that creates exception
+    nums = [1,2,3]
+    next(nums)
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # AttributeError
 try:
-    pass # code that creates exception
+    greeting = "Hello Word"
+    greeting.len()
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # StopIteration
 try:
-    pass # code that creates exception
+    nums = [1, 2]
+    iter_nums = iter(nums)
+    print(next(iter_nums))
+    print(next(iter_nums))
+    print(next(iter_nums))
 except Exception as e:
     print(type(e))
     print(e, '\n')
 
 # KeyError
 try:
-    pass # code that creates exception
+    dict1 = {"1":"a","2":"b"}
+    print(dict1[3])
 except Exception as e:
     print(type(e))
     print(e, '\n')
