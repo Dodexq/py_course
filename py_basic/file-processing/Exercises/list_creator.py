@@ -7,28 +7,31 @@ def add_item(item):
     print(item, "was appended")
 
 def remove_item(item):
-    with open("my_files/list.txt", "r+") as f:
-        list1 = f.read().splitlines()
-    for i in list1:
-        if i == item:
-            list1.remove(i)
+    item_found = False
+    with open('my_files/list.txt', 'r') as f:
+        items = f.read().splitlines()
+        if item in items:
+            items.remove(item)
+            item_found = True
+        else:
+            print(item + ' not found in list.')
 
-    with open("my_files/list.txt", "r+") as f:
-        f.write('\n'.join(list1) + '\n')
-            
+    if item_found:
+        with open('my_files/list.txt', 'w') as f:
+            f.write('\n'.join(items) + '\n')
+        print(item, "was remove from list")
 
 def delete_list():
-    """Deletes the entire contents of the list by opening
-    list.txt for writing."""
-    pass
+    with open('my_files/list.txt', 'w') as f:
+        print('List has been deleted.')
 
 def print_list():
-    """Prints list"""
-    pass
+    with open('my_files/list.txt', 'r') as f:
+        print(f.read())
 
 def show_instructions():
     print("""OPTIONS:
-    P
+    cat
         -- Print List
     +abc
         -- Add 'abc' to list
@@ -49,7 +52,7 @@ def main():
             print('Goodbye!')
             break
 
-        if choice.lower() == 'p':
+        if choice.lower() == 'cat':
             print_list()
         elif choice.lower() == '--all':
             delete_list()
