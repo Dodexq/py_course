@@ -1,18 +1,21 @@
-def add_item(item):
-    """Appends item (after stripping leading and trailing
-    whitespace) to list.txt followed by newline character
+import os
+os.chdir(os.path.dirname(__file__))
 
-    Keyword arguments:
-    item -- the item to append"""
-    pass
+def add_item(item):
+    with open("my_files/list.txt", "a") as f:
+        f.write(item+"\n")
+    print(item, "was appended")
 
 def remove_item(item):
-    """Removes first instance of item from list.txt
-    If item is not found in list.txt, alerts user.
+    with open("my_files/list.txt", "r+") as f:
+        list1 = f.read().splitlines()
+    for i in list1:
+        if i == item:
+            list1.remove(i)
 
-    Keyword arguments:
-    item -- the item to remove"""
-    pass
+    with open("my_files/list.txt", "r+") as f:
+        f.write('\n'.join(list1) + '\n')
+            
 
 def delete_list():
     """Deletes the entire contents of the list by opening
@@ -24,7 +27,6 @@ def print_list():
     pass
 
 def show_instructions():
-    """Prints instructions"""
     print("""OPTIONS:
     P
         -- Print List
