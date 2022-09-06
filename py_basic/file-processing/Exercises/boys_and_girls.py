@@ -1,38 +1,30 @@
 import os
 
 def file_path(relative_path):
-    """Returns absolute path from relative path"""
     folder = os.path.dirname(os.path.abspath(__file__))
     path_parts = relative_path.split("/")
     new_path = os.path.join(folder, *path_parts)
     return new_path
 
 def file_to_list(path):
-    """Returns content of file at path as list"""
     with open(file_path(path)) as f:
         lines = f.read().splitlines()
     return lines
 
 def subtract_lists(list1, list2):
-    """Returns a list of all items in list1, but not in list2"""
     return [x for x in list1 if x not in list2]
 
 def dups(list1, list2, sort=True):
-    """Returns a list containing items in both lists"""
     dup_list = []
     for item in list1:
         if item in list2:
             dup_list.append(item)
-
     if sort:
         dup_list.sort()
-
     return dup_list
 
 def list_to_file(path, the_list):
-    """Creates/Overwrites file at path with content from the_list"""
     content = "\n".join(the_list)
-
     with open(file_path(path), "w") as f:
         f.write(content)
 
