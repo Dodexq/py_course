@@ -32,15 +32,11 @@ def left_ontime(departure):
         return False
     return actual == planned
 
-# Write the following four functions. They should
-# all return a boolean value
 def left_early(departure):
     planned = departure[0]
     actual = departure[1]
     if not actual:
         return False
-    if actual < planned:
-        print('Early:', departure)
     return actual < planned
 
 def left_late(departure):
@@ -48,8 +44,7 @@ def left_late(departure):
     actual = departure[1]
     if not actual:
         return False
-    if actual > planned:
-        return actual > planned
+    return actual > planned
 
 def left_next_day(departure):
     planned = departure[0]
