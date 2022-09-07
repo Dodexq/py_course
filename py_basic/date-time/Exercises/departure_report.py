@@ -1,6 +1,8 @@
+import os
 from datetime import datetime
 
 def get_departures():
+    os.chdir(os.path.dirname(__file__))
     departures = []
     with open('../data/departure-data.txt') as f:
         for line in f.read().splitlines():
@@ -10,25 +12,17 @@ def get_departures():
     return departures
 
 def get_departure(line):
-    """Return a tuple containing two  datetime objects."""
+    
+    if line[0] == "*":
+        return None
 
-    # If the line begins with an asterisk (*), return None
-
-    # Get the planned and actual departures as strings by
-    # splitting the line on a tab character into a list
-    # Assign the first item in the list to planned and the
-    # second item to actual
-
-    # Convert the planned departure time to a datetime and
-    # assign the result to date_planned
-
-    # For those lines that have an actual departure time,
-    # convert the actual departure time to a datetime and
-    # assign the result to date_actual.
-    # For lines that don't have an actual departure date, assign
-    # None to date_actual.
-
-    # Return a tuple with date_planned and date_actual.
+    in_list = line.split("\t")
+    date_planned = datetime.strptime(in_list[0], '%m/%d/%Y %I:%M %p')
+    
+    if in_list[1]:
+        date_actual = datetime.strptime(in_list[1], '%m/%d/%Y %I:%M %p')
+    else:
+        date_actual = None
     return (date_planned, date_actual)
 
 def left_ontime(departure):
@@ -41,16 +35,33 @@ def left_ontime(departure):
 # Write the following four functions. They should
 # all return a boolean value
 def left_early(departure):
-    pass
+    planned = departure[0]
+    actual = departure[1]
+    if not actual:
+        return False
+    if actual < planned:
+        print('Early:', departure)
+    return actual < planned
 
 def left_late(departure):
-    pass
+    planned = departure[0]
+    actual = departure[1]
+    if not actual:
+        return False
+    if actual > planned:
+        return actual > planned
 
 def left_next_day(departure):
-    pass
+    planned = departure[0]
+    actual = departure[1]
+    if not actual:
+        return False
+    return actual.day > planned.day
 
 def did_not_run(departure):
-    pass
+    actual = departure[1]
+    if actual == None:
+        return True
 
 def main():
     departures = get_departures()
