@@ -42,3 +42,7 @@ dtime_today = datetime.datetime(year=2022, month=9, day=7,
 hour=13, minute=14, second=15)
 dtime_today.year, dtime_today.month, dtime_today.day
 # %%
+dtime_today.time()
+dtime_tuple = dtime_today.timetuple()
+dtime_tuple
+# %%
