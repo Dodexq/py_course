@@ -15,8 +15,11 @@ def pack_dir(source_dir, archive_file):
     with ZipFile(archive_file, 'w') as zipObj:
         for folderName, subfolders, filenames in os.walk(source_dir):
             for filename in filenames:
-                filePath = os.path.join(folderName, filename)
-                zipObj.write(filePath, os.path.basename(filePath))
+                if filename[-4:] == ".zip":
+                    continue
+                else:
+                    filePath = os.path.join(folderName, filename)
+                    zipObj.write(filePath, os.path.basename(filePath))
 
 source_dir = sys.argv[1]
 source_dir_name = os.path.basename(source_dir)
@@ -29,4 +32,4 @@ print(dest_dir)
 print(zip_filename)
 print(dest_path)
 
-pack_dir(source_dir=source_dir, archive_file=dest_path)
+pack_dir(source_dir, dest_path)
