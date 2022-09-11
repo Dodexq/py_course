@@ -1,3 +1,8 @@
+from collections import defaultdict
+import os
+import pprint
+from turtle import position
+
 yankees_1927 = [
     {'position': 'P', 'name': 'Walter Beall'},
     {'position': 'C', 'name': 'Benny Bengough'},
@@ -25,3 +30,9 @@ yankees_1927 = [
     {'position': 'P', 'name': 'Myles Thomas'},
     {'position': '3B', 'name': 'Julie Wera'}
 ]
+
+dict_position_list = defaultdict(list)
+for line in yankees_1927:
+    dict_position_list[line["position"]].append(line["name"])
+
+pprint.pprint(dict_position_list)
