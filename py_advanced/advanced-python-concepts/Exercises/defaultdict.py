@@ -1,7 +1,5 @@
 from collections import defaultdict
-import os
 import pprint
-from turtle import position
 
 yankees_1927 = [
     {'position': 'P', 'name': 'Walter Beall'},
