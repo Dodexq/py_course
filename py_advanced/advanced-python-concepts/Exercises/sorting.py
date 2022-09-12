@@ -1,30 +1,23 @@
-# Simple sort() method
 colors = ['red', 'blue', 'green', 'orange']
-# colors.sort()
-new_colors = sorted(colors) # This one has been done for you
+new_colors = sorted(colors)
 print(new_colors)
 
-# The reverse argument:
-colors.sort(reverse=True)
-print(colors)
+new_colors2 = sorted(colors, reverse=True)
+print(new_colors2)
 
-# The key argument:
-colors.sort(key=len)
-print(colors)
+new_colors3 = sorted(colors, key=len)
+print(new_colors3)
 
-# The key argument with named function:
 def get_lastname(name):
     return name.split()[-1]
 
 people = ['George Washington', 'John Adams',
           'Thomas Jefferson', 'John Quincy Adams']
-people.sort(key=get_lastname)
-print(people)
+new_people = sorted(people, key=get_lastname)
+print(new_people)
 
-# The key argument with lambda:
-people.sort(key=lambda name: name.split()[-1])
-print(people)
+new_people2 = sorted(people, key=lambda name: name.split()[-1])
+print(new_people2)
 
-# Combing key and reverse
-colors.sort(key=len, reverse=True)
-print(colors)
+new_colors4 = sorted(colors, key=len, reverse=True)
+print(new_colors4)
