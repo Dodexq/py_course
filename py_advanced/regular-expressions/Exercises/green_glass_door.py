@@ -1,11 +1,8 @@
+import re
+
 def green_glass_door(word):
-    prev_letter = ''
-    for letter in word:
-        letter = letter.upper()
-        if letter == prev_letter:
-            return True
-        prev_letter = letter
-    return False
+    exp = re.compile(r"(.)\1")
+    return re.search(exp, word)
 
 fruits = ['banana', 'apple', 'pear', 'grape', 'cherry',
           'persimmons', 'orange', 'passion fruit']
