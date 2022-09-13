@@ -1,0 +1,4 @@
+subj: math grades: 77
+subj: music grades: 74
+subj: art grades: 62
+subj: english grades: 83
