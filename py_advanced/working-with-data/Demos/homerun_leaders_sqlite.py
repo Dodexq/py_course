@@ -1,6 +1,7 @@
 import sqlite3
-
+import os
 def main():
+    os.chdir(os.path.dirname(__file__))
     connection = sqlite3.connect('../data/lahmansbaseballdb.sqlite')
     connection.row_factory = sqlite3.Row
 
