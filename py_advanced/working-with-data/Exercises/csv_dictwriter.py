@@ -1,5 +1,8 @@
 import mysql.connector
 import csv
+import os
+
+os.chdir(os.path.dirname(__file__))
 
 connection = mysql.connector.connect(
     host='lahman.csw1rmup8ri6.us-east-1.rds.amazonaws.com',
@@ -8,13 +11,14 @@ connection = mysql.connector.connect(
     db='lahmansbaseballdb'
 )
 
-query = """SELECT year(debut) AS year, avg(weight) AS weight
+query = """SELECT year(debut) AS year, avg(weight) AS weight,
+nameFirst AS name, nameLast AS lname
 FROM people
 WHERE debut is NOT NULL
 GROUP BY year(debut)
 ORDER BY year(debut)"""
 
-cursor = connection.cursor()
+cursor = connection.cursor(dictionary=True)
 cursor.execute(query)
 results = cursor.fetchall()
 
@@ -23,6 +27,7 @@ connection.close()
 
 csv_file = '../data/mlb-weight-over-time.csv'
 with open(csv_file, 'w', newline='', encoding='utf-8') as csvfile:
-    writer = csv.writer(csvfile)
-    writer.writerow(['Year', 'Weight'])
+    fieldnames = results[0].keys()
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
     writer.writerows(results)

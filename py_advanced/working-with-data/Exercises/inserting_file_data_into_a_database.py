@@ -12,11 +12,9 @@ create = """CREATE TABLE states (
                 'pop2020' integer,
                 'pop2000' integer
             )"""
-
 cursor.execute(create)
 
 insert = 'INSERT INTO states VALUES (?, ?, ?)'
-
 insert_data = []
 with open("../data/states.txt", "r") as f:
     for line in f.readlines():
@@ -24,13 +22,8 @@ with open("../data/states.txt", "r") as f:
         return_data = (data[0], int(data[1].replace(",","")), \
             int(data[2].replace(",","")))
         insert_data.append(return_data)
-
 cursor.executemany(insert, insert_data)
 
-#     line = (i.split("\t") for i in f.read().splitlines())
-# for insert_tuple in line:
-#     cursor.execute(insert, insert_tuple)
-    
 select = """SELECT state,
             CAST((pop2020*1.0/pop2000) * pop2020 AS INTEGER) AS pop2040
             FROM states ORDER BY pop2040 DESC"""
