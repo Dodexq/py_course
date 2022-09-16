@@ -6,13 +6,13 @@ FEED = 'https://api.openweathermap.org/data/2.5/forecast/'
 
 
 def main():
-    city = 'Syracuse'
-    state = 'New York'
-    country_code = 'us'
+    city = 'Voronezh'
+    state = ''
+    country_code = 'ru'
 
     params = {
         'q': city + ',' + state + ',' + country_code,
-        'units': 'imperial',
+        'units': 'metric',
         'APPID': API_KEY
     }
 
@@ -27,6 +27,6 @@ def main():
         max_temp = item['main']['temp_max']
         dt = item['dt_txt']
         day_time = datetime.strptime(dt, fmt_in).strftime(fmt_out)
-        print(f'High on {day_time} in {city}: {max_temp} fahrenheit.')
+        print(f'High on {day_time} in {city}: {max_temp} celsius.')
 
 main()

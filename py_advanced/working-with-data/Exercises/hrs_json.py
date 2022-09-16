@@ -1,7 +1,6 @@
 import requests
 
 data="https://www.webucator.com/course-demos/python/hrleadersjson.cfm" 
-
 r = requests.get(data)
 records = r.json()
 
