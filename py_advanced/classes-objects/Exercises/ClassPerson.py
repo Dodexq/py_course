@@ -38,3 +38,8 @@ emp1 = Employee("Vasily", 26, 150000, "Instructor")
 # %%
 print(emp1)
 # %%
+people.append(emp1)
+# %%
+print(sorted([p for p in people if p.age >= 21], 
+key=lambda p: p.name))
+# %%
