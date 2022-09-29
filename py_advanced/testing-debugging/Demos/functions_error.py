@@ -6,3 +6,4 @@ def append(s, c):
 
 def insert(s, c, pos):
     return s[0:pos] + c + s[pos:-1] # wrong
+    
