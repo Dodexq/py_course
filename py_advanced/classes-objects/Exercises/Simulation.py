@@ -12,13 +12,16 @@ class Simulation:
             result = self._fnct_to_run()
             self._results.append(result)
     
-    def get_mean(self):
+    @property
+    def mean(self):
         return stats.mean(self._results)
     
-    def get_median(self):
+    @property
+    def median(self):
         return stats.median(self._results)
     
-    def get_mode(self):
+    @property
+    def mode(self):
         try:
             return stats.mode(self._results)
         except:

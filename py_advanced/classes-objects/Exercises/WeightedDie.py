@@ -1,4 +1,5 @@
 import random
+
 from Die import Die
 
 class WeightedDie(Die):
@@ -18,5 +19,10 @@ class WeightedDie(Die):
     
     def roll(self):
         """Returns a value between 1 and the number of die sides."""
-        
-        # COMPLETE THIS CODE
+        options = []
+        for i in range(self._sides):
+            for j in range(self._weights[i]):
+                options.append(i+1)
+        roll = random.choice(options)
+        self._rolls.append(roll)
+        return roll

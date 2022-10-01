@@ -1,8 +1,9 @@
 import random
+
 from WeightedDie import WeightedDie
 
 class WeightingDie(WeightedDie):
-    "A weighting die"
+    "A weighted die"
     def __init__(self, sides=6):
         """Creates a die that favors sides it has previously rolled
         
@@ -14,4 +15,6 @@ class WeightingDie(WeightedDie):
     
     def roll(self):
         """Returns a value between 1 and the number of die sides."""
-       # COMPLETE THE CODE
+        result = super().roll()
+        self._weights[result-1] += 1
+        return result
