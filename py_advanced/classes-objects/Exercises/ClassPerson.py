@@ -1,6 +1,16 @@
 # %% 
 class Person():
+    """
+    Hello
+    """
     def __init__(self, name, age):
+        """
+        Init method
+
+        Args:
+            name (str): name person
+            age (int): age person
+        """
         self.name = name
         self.age = age
 
@@ -42,4 +52,6 @@ people.append(emp1)
 # %%
 print(sorted([p for p in people if p.age >= 21], 
 key=lambda p: p.name))
+# %%
+help(Person)
 # %%
