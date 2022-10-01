@@ -9,10 +9,6 @@ class Die:
         self.rolled =  random.randint(1, self.sides)
         return self.rolled
 
-    def re_roll(self):
-        self.rolled = self.roll_method()
-        return self.rolled
-
     def __str__(self):
         return f"Number {self.rolled}"
 
