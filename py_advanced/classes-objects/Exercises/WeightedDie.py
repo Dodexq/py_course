@@ -17,9 +17,9 @@ class WeightedDie(Die):
         for i in range(self._sides):
             for j in range(int(self._weights[i])):
                 options.append(i+1)
-            roll = random.choice(options)
-            self._rolls.append(roll)
-        return self._rolls
+        roll = random.choice(options)
+        self._rolls.append(roll)
+        return roll
 
 def main():
     ibj = WeightedDie([1,1,1,1,2,2])
