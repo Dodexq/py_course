@@ -6,6 +6,8 @@ def sepor(num=10):
 def print_chech(basket, summa):
     if not basket:
         print("Вы ушли без товара")
+        return None
+    
     print("*ЧЕК*")
     c = Counter(basket)
     sepor()
@@ -24,7 +26,7 @@ def main():
 
         my_choise = input("Для выхода(печать чека) - q, для вызова цен - p," + 
             " для добавления продуктов в корзину - a: "
-            "баланс - с, ")
+            "баланс - с: ")
         print("Список продуктов:", ", ".join(product_map.keys()))
         
         if my_choise == "q":
